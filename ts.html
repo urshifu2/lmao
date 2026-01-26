@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View</title>
+    <style>
+        /* Remove all default margins and padding */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Prevents scrollbars */
+            background-color: #000;
+        }
+
+        /* Hide the mouse cursor to remove "video" feel */
+        body {
+            cursor: none;
+        }
+
+        /* Style the video to fill the screen completely */
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            /* Keeps the video centered */
+            transform: translateX(-50%) translateY(-50%);
+            /* Ensures the video covers the entire screen without black bars (zooms/crops if needed) */
+            object-fit: cover; 
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+      autoplay: Starts video immediately
+      loop: Repeats video when done
+      muted: REQUIRED for browsers to allow autoplay
+      playsinline: Prevents iOS from opening a native video player
+    -->
+    <video autoplay loop muted playsinline>
+        <source src="your-video-filename.mp4" type="video/mp4">
+    </video>
+
+</body>
+</html>
