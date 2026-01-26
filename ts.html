@@ -5,36 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View</title>
     <style>
-        /* Remove default browser margins and scrollbars */
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
             background-color: #000;
+            
+            /* These lines center the image vertically if it is short */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; 
         }
 
-        /* 
-           Style the Image to act like a background cover.
-           'object-fit: cover' ensures it fills the screen 
-           without stretching the image weirdly.
-        */
-        #fullscreen-gif {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        #gif-player {
+            /* This forces the GIF to match the screen width exactly */
+            width: 100%; 
+            /* This allows the height to adjust automatically so it doesn't distort */
+            height: auto; 
             display: block;
+
+            /* 
+               TROUBLESHOOTING THE ANGLE:
+               If your GIF is actually rotated sideways (90 degrees), 
+               uncomment the line below (remove the /* and * /) to rotate it back.
+            */
+            /* transform: rotate(90deg); */
         }
     </style>
 </head>
 <body>
 
-    <!-- CHANGE 'your-file.gif' TO THE EXACT NAME OF YOUR GIF -->
-    <img id="fullscreen-gif" src="720x1280_ai285_p - Copy.gif" alt="animation">
+    <!-- REPLACE 'your-file.gif' WITH YOUR FILENAME -->
+    <img id="gif-player" src="720x1280_ai285_p - Copy.gif" alt="animation">
 
 </body>
 </html>
