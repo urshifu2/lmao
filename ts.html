@@ -11,33 +11,37 @@
             width: 100%;
             height: 100%;
             background-color: #000;
+            overflow: hidden; /* Disables scrolling completely */
             
-            /* These lines center the image vertically if it is short */
+            /* Centers the image perfectly in the middle of the screen */
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden; 
         }
 
         #gif-player {
-            /* This forces the GIF to match the screen width exactly */
-            width: 100%; 
-            /* This allows the height to adjust automatically so it doesn't distort */
-            height: auto; 
-            display: block;
-
             /* 
-               TROUBLESHOOTING THE ANGLE:
-               If your GIF is actually rotated sideways (90 degrees), 
-               uncomment the line below (remove the /* and * /) to rotate it back.
+               'contain' is the magic setting:
+               It forces the image to be as big as possible 
+               while ensuring 100% of the image is visible 
+               (no cropping, no scrolling).
             */
-            transform: rotate(90deg);
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            
+            /* 
+               ROTATION SETTING:
+               If your GIF looks like it's laying on its side (90 degrees wrong),
+               remove the "/*" and "* /" from the line below to stand it up.
+            */
+            /* transform: rotate(90deg); */
         }
     </style>
 </head>
 <body>
 
-    <!-- REPLACE 'your-file.gif' WITH YOUR FILENAME -->
+    <!-- REPLACE WITH YOUR EXACT FILENAME -->
     <img id="gif-player" src="720x1280_ai285_p - Copy.gif" alt="animation">
 
 </body>
