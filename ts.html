@@ -5,49 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View</title>
     <style>
-        /* Remove all default margins and padding */
+        /* Remove default browser margins and scrollbars */
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden; /* Prevents scrollbars */
+            overflow: hidden;
             background-color: #000;
         }
 
-        /* Hide the mouse cursor to remove "video" feel */
-        body {
-            cursor: none;
-        }
-
-        /* Style the video to fill the screen completely */
-        video {
+        /* 
+           Style the Image to act like a background cover.
+           'object-fit: cover' ensures it fills the screen 
+           without stretching the image weirdly.
+        */
+        #fullscreen-gif {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            /* Keeps the video centered */
-            transform: translateX(-50%) translateY(-50%);
-            /* Ensures the video covers the entire screen without black bars (zooms/crops if needed) */
-            object-fit: cover; 
-            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <!-- 
-      autoplay: Starts video immediately
-      loop: Repeats video when done
-      muted: REQUIRED for browsers to allow autoplay
-      playsinline: Prevents iOS from opening a native video player
-    -->
-    <video autoplay loop muted playsinline>
-        <source src="your-video-filename.mp4" type="video/mp4">
-    </video>
+    <!-- CHANGE 'your-file.gif' TO THE EXACT NAME OF YOUR GIF -->
+    <img id="fullscreen-gif" src="your-file.gif" alt="animation">
 
 </body>
 </html>
